@@ -149,11 +149,9 @@ def post_search(request):
             )
             search_query = SearchQuery(query)
             results = (
-                Post.published.annotate(
-                    search=search_vector, rank=SearchRank(search_vector, search_query)
-                )
-                .filter(rank__gte=0.3)
-                .order_by("-rank")
+                Post.published.annotate(similarity=TrigramSimilarity("title", query))
+                .filter(similarity__gt=0.1)
+                .order_by("-similarity")
             )
 
     return render(
