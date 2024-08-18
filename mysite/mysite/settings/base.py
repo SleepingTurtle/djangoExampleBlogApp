@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-)0_v#xjen^@r#zsk(%w(2eh&4n7u@j@3um_208@cgbbt-bfd*c"
-
+SITE_ID = 1
 ALLOWED_HOSTS = []
 
 
@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
     "django.contrib.staticfiles",
     "blog.apps.BlogConfig",
     "taggit",
